@@ -1,0 +1,40 @@
+/* Menu lateral fixo */
+#sidebar {
+    width: 220px; /* aumentei um pouco pra deixar mais espaçoso */
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #212529;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Conteúdo principal com margem alinhada ao tamanho da sidebar */
+.flex-grow-1 {
+    margin-left: 240px; /* igual ao width da sidebar + um respiro */
+    padding: 40px 30px;
+}
+
+/* Estilo dos links dos fragmentos */
+.list-group-item a {
+    text-decoration: none;
+    color: #000;
+}
+
+.list-group-item a:hover {
+    text-decoration: underline;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    #sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .flex-grow-1 {
+        margin-left: 0;
+    }
+}
