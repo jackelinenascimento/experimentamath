@@ -17,8 +17,10 @@
   <div class="d-flex min-vh-100">
     <!-- Menu Lateral -->
     <nav id="sidebar" class="bg-dark text-white p-3">
-      <h2 class="fs-4 mb-4">experimentaMath</h2>
-      <ul class="nav flex-column">
+        <div id="overlay" class="d-md-none"></div>
+        <button id="closeSidebar" class="btn btn-sm btn-light d-md-none mb-3">✖</button>
+        <h2 class="fs-4 mb-4">experimentaMath</h2>
+        <ul class="nav flex-column">
         <li class="nav-item mb-2">
           <a class="nav-link text-white" href="/">🏠 Início</a>
         </li>
@@ -34,15 +36,7 @@
     </main>
   </div>
 
-  <!-- Script para toggle do menu -->
-  <script>
-    const toggleBtn = document.getElementById('toggleSidebar');
-    const sidebar = document.getElementById('sidebar');
-
-    toggleBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('active');
-    });
-  </script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 </html>

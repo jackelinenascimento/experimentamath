@@ -1,6 +1,6 @@
-/* Sidebar padrão */
+/* Sidebar fixo */
 #sidebar {
-  width: 220px;
+  width: 250px;
   height: 100vh;
   position: fixed;
   top: 0;
@@ -8,21 +8,39 @@
   background-color: #212529;
   padding: 20px;
   overflow-y: auto;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease-in-out;
   z-index: 1040;
 }
 
-/* Conteúdo com margem ajustada */
+/* Conteúdo principal */
 #main-content {
-  margin-left: 240px;
-  transition: margin-left 0.3s ease;
+  margin-left: 270px;
+  transition: margin-left 0.3s ease-in-out;
 }
 
-/* Sidebar oculta no mobile até ser ativada */
-@media (max-width: 768px) {
+/* Overlay escuro no mobile */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1030;
+  display: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Mostrar overlay quando sidebar ativo */
+#sidebar.active + #overlay {
+  display: block;
+  opacity: 1;
+}
+
+/* Estilos MOBILE */
+@media (max-width: 767.98px) {
   #sidebar {
     transform: translateX(-100%);
-    position: fixed;
   }
 
   #sidebar.active {
