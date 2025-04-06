@@ -1,40 +1,35 @@
-/* Menu lateral fixo */
+/* Sidebar padrão */
 #sidebar {
-    width: 220px; /* aumentei um pouco pra deixar mais espaçoso */
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #212529;
-    padding: 20px;
-    overflow-y: auto;
+  width: 220px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #212529;
+  padding: 20px;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+  z-index: 1040;
 }
 
-/* Conteúdo principal com margem alinhada ao tamanho da sidebar */
-.flex-grow-1 {
-    margin-left: 240px; /* igual ao width da sidebar + um respiro */
-    padding: 40px 30px;
+/* Conteúdo com margem ajustada */
+#main-content {
+  margin-left: 240px;
+  transition: margin-left 0.3s ease;
 }
 
-/* Estilo dos links dos fragmentos */
-.list-group-item a {
-    text-decoration: none;
-    color: #000;
-}
-
-.list-group-item a:hover {
-    text-decoration: underline;
-}
-
-/* Responsivo */
+/* Sidebar oculta no mobile até ser ativada */
 @media (max-width: 768px) {
-    #sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-    }
+  #sidebar {
+    transform: translateX(-100%);
+    position: fixed;
+  }
 
-    .flex-grow-1 {
-        margin-left: 0;
-    }
+  #sidebar.active {
+    transform: translateX(0);
+  }
+
+  #main-content {
+    margin-left: 0;
+  }
 }
