@@ -7,9 +7,8 @@ fragments = [
     {
         "id": 1,
         "title": "Lei de Benford",
-        "content": "Descubra por que o número 1 aparece mais do que o 9 em dados reais "
-                   "e como isso pode ser usado para detectar fraudes."
-    }
+        "description": "Descubra por que o número 1 aparece mais do que o 9 em dados reais e como isso pode ser usado para detectar fraudes.",
+        "template": "fragments/benford.html"}
 ]
 
 @app.route("/")
@@ -25,7 +24,7 @@ def fragment_detail(id):
     fragment = next((f for f in fragments if f["id"] == id), None)
     if not fragment:
         return "<h1>Fragmento não encontrado</h1>", 404
-    return render_template("fragment_detail.html", fragment=fragment)
+    return render_template(fragment["template"], fragment=fragment)
 
 if __name__ == "__main__":
     app.run(debug=True)

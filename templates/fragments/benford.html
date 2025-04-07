@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Lei de Benford - experimentaMath{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="text-center">
+    <h1 class="display-4 mb-4">📊 Lei de Benford</h1>
+
+    <p class="lead mb-4">
+      A <strong>Lei de Benford</strong> descreve a frequência com que certos dígitos aparecem como o primeiro dígito em números reais do mundo.
+      Surpreendentemente, números que começam com <code>1</code> ocorrem com muito mais frequência do que aqueles que começam com <code>9</code>.
+    </p>
+
+    <div class="text-start mb-5">
+      <h5>🔬 Fórmula Matemática:</h5>
+      <p>
+        A probabilidade de um número começar com o dígito <code>d</code> (onde <code>d</code> vai de 1 a 9) é dada por:
+      </p>
+      <p class="text-center fs-4 fw-bold">
+        P(d) = log<sub>10</sub>(1 + 1/d)
+      </p>
+      <p>
+        Essa fórmula indica que:
+      </p>
+      <ul>
+        <li>O dígito 1 aparece como primeiro dígito em cerca de 30.1% dos casos</li>
+        <li>O dígito 9 aparece apenas em cerca de 4.6% dos casos</li>
+      </ul>
+    </div>
+
+    <div class="mb-5 text-start">
+      <h5>🧪 Exemplo Prático:</h5>
+      <p>
+        Imagine que você colete valores financeiros de diversas empresas. Se os dados forem naturais e não manipulados, a distribuição dos primeiros dígitos deve se aproximar da Lei de Benford.
+      </p>
+      <p>
+        Mas se os dados estiverem forjados (como em fraudes fiscais), a distribuição dos dígitos pode ser mais uniforme — isso levanta suspeitas.
+      </p>
+    </div>
+
+    <div class="card shadow mb-5">
+      <div class="card-body">
+        <h5 class="card-title mb-4">Distribuição Esperada</h5>
+        <canvas id="benfordChart" height="100"></canvas>
+      </div>
+    </div>
+
+    <a href="{{ url_for('list_fragments') }}" class="btn btn-secondary btn-lg">
+      ← Voltar para Fragmentos
+    </a>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="{{ url_for('static', filename='js/benford.js') }}"></script>
+{% endblock %}

@@ -7,17 +7,17 @@
   <div class="text-center">
     <h1 class="display-4 mb-4">📚 Fragmentos Matemáticos</h1>
     <div class="row justify-content-center">
-      <div class="col-md-8 col-lg-6">
+      {% for fragment in fragments %}
+      <div class="col-md-8 col-lg-6 mb-4">
         <div class="card shadow">
           <div class="card-body">
-            <h5 class="card-title">📊 Lei de Benford</h5>
-            <p class="card-text">
-              Descubra por que o número 1 aparece mais do que o 9 em dados reais e como isso pode ser usado para detectar fraudes.
-            </p>
-            <a href="{{ url_for('fragment_detail', id=1) }}" class="btn btn-primary">Explorar Fragmento</a>
+            <h5 class="card-title">📊 {{ fragment.title }}</h5>
+            <p class="card-text">{{ fragment.description }}</p>
+            <a href="{{ url_for('fragment_detail', id=fragment.id) }}" class="btn btn-primary">Explorar Fragmento</a>
           </div>
         </div>
       </div>
+      {% endfor %}
     </div>
   </div>
 </div>

@@ -34,3 +34,5 @@ document.querySelectorAll('#sidebar .nav-link').forEach(link => {
     }
   });
 });
+
+console.log('benford.js carregado!');
