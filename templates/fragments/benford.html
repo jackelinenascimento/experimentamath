@@ -5,56 +5,45 @@
 {% block content %}
 <div class="container py-5">
   <div class="text-center">
-    <h1 class="display-4 mb-4">📊 Lei de Benford</h1>
+    <h1 class="mb-4">📊 Lei de Newcomb-Benford</h1>
 
-    <p class="lead mb-4">
-      A <strong>Lei de Benford</strong> descreve a frequência com que certos dígitos aparecem como o primeiro dígito em números reais do mundo.
-      Surpreendentemente, números que começam com <code>1</code> ocorrem com muito mais frequência do que aqueles que começam com <code>9</code>.
+    <p class="lead">
+      A <strong>Lei de Benford</strong> descreve um fenômeno estatístico surpreendente: em muitos conjuntos de dados reais, os números que começam com dígitos menores (como 1, 2 ou 3) aparecem com muito mais frequência do que aqueles que começam com dígitos maiores.
     </p>
 
-    <div class="text-start mb-5">
-      <h5>🔬 Fórmula Matemática:</h5>
-      <p>
-        A probabilidade de um número começar com o dígito <code>d</code> (onde <code>d</code> vai de 1 a 9) é dada por:
-      </p>
-      <p class="text-center fs-4 fw-bold">
-        P(d) = log<sub>10</sub>(1 + 1/d)
-      </p>
-      <p>
-        Essa fórmula indica que:
-      </p>
-      <ul>
-        <li>O dígito 1 aparece como primeiro dígito em cerca de 30.1% dos casos</li>
-        <li>O dígito 9 aparece apenas em cerca de 4.6% dos casos</li>
-      </ul>
+    <div class="mb-4">
+      <img src="{{ url_for('static', filename='img/benford_plot.png') }}" alt="Gráfico da Lei de Benford" class="img-fluid shadow rounded">
     </div>
 
-    <div class="mb-5 text-start">
-      <h5>🧪 Exemplo Prático:</h5>
-      <p>
-        Imagine que você colete valores financeiros de diversas empresas. Se os dados forem naturais e não manipulados, a distribuição dos primeiros dígitos deve se aproximar da Lei de Benford.
-      </p>
-      <p>
-        Mas se os dados estiverem forjados (como em fraudes fiscais), a distribuição dos dígitos pode ser mais uniforme — isso levanta suspeitas.
-      </p>
-    </div>
+    <p>
+      Segundo a Lei de Benford, a probabilidade de um número começar com o dígito <code>d</code> (onde <code>d</code> vai de 1 a 9) é dada por:
+    </p>
 
-    <div class="card shadow mb-5">
-      <div class="card-body">
-        <h5 class="card-title mb-4">Distribuição Esperada</h5>
-        <canvas id="benfordChart" height="100"></canvas>
-      </div>
-    </div>
+    <p class="font-monospace fw-bold">
+      P(d) = log<sub>10</sub>(1 + 1/d)
+    </p>
 
-    <a href="{{ url_for('list_fragments') }}" class="btn btn-secondary btn-lg">
-      ← Voltar para Fragmentos
-    </a>
+    <p>
+      Isso significa, por exemplo, que cerca de 30% dos números começam com o dígito <code>1</code>, enquanto menos de 5% começam com <code>9</code>. Essa distribuição é contraintuitiva, mas comum em dados como:
+    </p>
+
+    <ul class="text-start d-inline-block">
+      <li>Valores financeiros e contábeis</li>
+      <li>Populações de cidades</li>
+      <li>Constantes físicas</li>
+      <li>Números de processos judiciais</li>
+      <li>Medidas geográficas</li>
+    </ul>
+
+    <p>
+      A Lei de Benford foi inicialmente observada por Simon Newcomb em 1881 e redescoberta por Frank Benford em 1938, que testou a distribuição em mais de 20 conjuntos de dados diferentes, confirmando sua ocorrência ampla.
+    </p>
+
+    <p>
+      Hoje, a lei é uma ferramenta poderosa para <strong>detecção de fraudes</strong> e <strong>análise de integridade de dados</strong>. Quando um conjunto de números que deveria seguir a Lei de Benford não o faz, isso pode indicar manipulação ou inconsistências.
+    </p>
+
+    <a href="{{ url_for('list_fragments') }}" class="btn btn-secondary mt-4">← Voltar para Fragmentos</a>
   </div>
 </div>
-{% endblock %}
-
-{% block scripts %}
-  {{ super() }}
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="{{ url_for('static', filename='js/benford.js') }}"></script>
 {% endblock %}

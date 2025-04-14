@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Caso Real - Lei de Benford • experimentaMath{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="text-center">
+    <h1 class="mb-4">📂 Aplicação Real da Lei de Newcomb-Benford</h1>
+
+    <p class="lead">
+      Este gráfico representa a distribuição dos dígitos iniciais em um <strong>caso real</strong>, baseado em dados públicos sobre a população atendida com rede de água em diversos municípios brasileiros.
+    </p>
+
+    <div class="mb-4">
+      <img src="{{ url_for('static', filename='img/grafico_benford.png') }}" alt="Gráfico Benford Dados Reais" class="img-fluid shadow rounded">
+    </div>
+
+    <p>
+      A análise compara a frequência observada dos dígitos com a frequência esperada segundo a <strong>Lei de Benford</strong>. O resultado visual permite identificar se os dados seguem o comportamento estatístico esperado.
+    </p>
+
+    <p>
+      Os valores esperados pela Lei de Benford são:
+    </p>
+
+    <ul class="text-start d-inline-block">
+      <li><strong>1:</strong> 30,1%</li>
+      <li><strong>2:</strong> 17,6%</li>
+      <li><strong>3:</strong> 12,5%</li>
+      <li><strong>4:</strong> 9,7%</li>
+      <li><strong>5:</strong> 7,9%</li>
+      <li><strong>6:</strong> 6,7%</li>
+      <li><strong>7:</strong> 5,8%</li>
+      <li><strong>8:</strong> 5,1%</li>
+      <li><strong>9:</strong> 4,6%</li>
+    </ul>
+
+    <p>
+      A divergência entre os dados reais e a distribuição de Benford pode indicar padrões incomuns ou mesmo inconsistências nos dados. Contudo, é importante destacar que nem todo desvio significa fraude — o contexto dos dados deve ser considerado.
+    </p>
+
+    <div class="alert alert-secondary mt-4 text-start" role="alert">
+      <strong>Fonte dos dados:</strong> base pública do governo com informações de atendimento por rede de abastecimento de água.
+    </div>
+
+    <a href="{{ url_for('home') }}" class="btn btn-secondary mt-4">← Voltar para a Página Inicial</a>
+  </div>
+</div>
+{% endblock %}

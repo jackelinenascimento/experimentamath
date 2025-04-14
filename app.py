@@ -2,13 +2,19 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# Fragmento único sobre a Lei de Benford
 fragments = [
     {
         "id": 1,
-        "title": "Lei de Benford",
+        "title": "Lei de Newcomb-Benford",
         "description": "Descubra por que o número 1 aparece mais do que o 9 em dados reais e como isso pode ser usado para detectar fraudes.",
-        "template": "fragments/benford.html"}
+        "template": "fragments/benford.html"
+    },
+    {
+        "id": 2,
+        "title": "Aplicação Real da Lei de Newcomb-Benford",
+        "description": "Veja a distribuição dos dígitos em dados reais de municípios brasileiros e compare com o padrão esperado pela lei.",
+        "template": "fragments/benford_real_data.html"
+    },
 ]
 
 @app.route("/")
