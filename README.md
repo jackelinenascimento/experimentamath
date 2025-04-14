@@ -23,7 +23,6 @@ Cada fragmento é uma página interativa que apresenta conceitos, análises e vi
 - ✅ Sidebar com links para fragmentos matemáticos  
 - ✅ Páginas dinâmicas e interativas com Jinja2  
 - ✅ Visualização de dados reais com gráficos (Matplotlib)  
-- ✅ Aplicação da Lei de Benford para detecção de padrões e possíveis fraudes
 
 ## 🚀 Como executar localmente
 
